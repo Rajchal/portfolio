@@ -5,6 +5,7 @@ import { OrbitControls } from "@react-three/drei";
 import CanvasLoader from "../components/CanvasLoader.jsx";
 import { workExperiences } from "../constants/index.js";
 import { useMediaQuery } from "react-responsive";
+import useInView from "../hooks/useInView";
 
 const Developer = lazy(() => import("../components/Developer.jsx"));
 const MemoizedDeveloper = memo(Developer);
@@ -13,28 +14,35 @@ const MemoizedCanvasLoader = memo(CanvasLoader);
 const WorkExperience = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const [animationName, setAnimationName] = useState("idle");
+  const { ref: sectionRef, isInView } = useInView({ rootMargin: "250px" });
 
   return (
-    <section className="c-space my-20" id="experience">
+    <section ref={sectionRef} className="c-space my-20" id="experience">
       <div className="w-full text-white-600">
         <h3 className="head-text pt-20">My Work Experience</h3>
 
         <div className="work-container">
           <div className="work-canvas">
-            <Canvas shadows dpr={[1, 2]}>
-              <Suspense fallback={<MemoizedCanvasLoader />}>
-                <ambientLight intensity={0.8} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-                <directionalLight position={[10, 10, 10]} intensity={1} />
-                <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+            {isInView ? (
+              <Canvas dpr={[1, 1.5]}>
+                <Suspense fallback={<MemoizedCanvasLoader />}>
+                  <ambientLight intensity={0.8} />
+                  <spotLight
+                    position={[10, 10, 10]}
+                    angle={0.15}
+                    penumbra={1}
+                  />
+                  <directionalLight position={[10, 10, 10]} intensity={1} />
+                  <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
 
-                <MemoizedDeveloper
-                  position-y={-3}
-                  scale={3}
-                  animationName={isSmall ? "idle" : animationName}
-                />
-              </Suspense>
-            </Canvas>
+                  <MemoizedDeveloper
+                    position-y={-3}
+                    scale={3}
+                    animationName={isSmall ? "idle" : animationName}
+                  />
+                </Suspense>
+              </Canvas>
+            ) : null}
           </div>
 
           <div className="work-content">

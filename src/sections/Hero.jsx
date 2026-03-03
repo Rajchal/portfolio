@@ -9,6 +9,7 @@ import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants";
 import HeroCamera from "../components/HeroCamera";
 import Button from "../components/Button";
+import useInView from "../hooks/useInView";
 
 const HackerRoom = lazy(() => import("../components/HackerRoom"));
 const HackerRooMemo = memo(HackerRoom);
@@ -53,6 +54,7 @@ const Hero = () => {
   const isAwk = useMediaQuery({ minWidth: 1024, maxWidth: 1074 });
   const sizes = calculateSizes(isSmall, isMobile, isTablet, isAwk);
   const [isRendered, setIsRendered] = useState(false);
+  const { ref: sectionRef, isInView } = useInView({ rootMargin: "300px" });
 
   useEffect(() => {
     if (isRendered) {
@@ -63,7 +65,11 @@ const Hero = () => {
   }, [isRendered]);
   const poppy = isRendered ? "" : "hidden";
   return (
-    <section className="min-h-screen w-full flex flex-col relative" id="home">
+    <section
+      ref={sectionRef}
+      className="min-h-screen w-full flex flex-col relative"
+      id="home"
+    >
       <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 z-10 pointer-events-none">
         <h1 className="sm:text-2xl text-xl font-medium text-white text-center font-generalsans">
           Hi, I am Anjal <span className="waving-hand">👋</span>{" "}
@@ -74,23 +80,25 @@ const Hero = () => {
       </div>
       <div className="w-full h-full absolute inset-0">
         {/* <Leva /> */}
-        <Canvas className="w-full h-full" dpr={[1, 1.5]}>
-          <Suspense fallback={<MemoizedCanvasLoader />}>
-            <PerspectiveCamera makeDefault position={[0, 0, 20]} />
-            <HeroCamera isMobile={isSmall}>
-              {" "}
-              <MemoizedHackerRoom
-                position={sizes.deskPosition}
-                rotation={[-9.5, 3.9, 3.1]}
-                scale={sizes.deskScale}
-                onRendered={() => setIsRendered(true)}
-              />
-            </HeroCamera>
+        {isInView ? (
+          <Canvas className="w-full h-full" dpr={[1, 1.5]}>
+            <Suspense fallback={<MemoizedCanvasLoader />}>
+              <PerspectiveCamera makeDefault position={[0, 0, 20]} />
+              <HeroCamera isMobile={isSmall}>
+                {" "}
+                <MemoizedHackerRoom
+                  position={sizes.deskPosition}
+                  rotation={[-9.5, 3.9, 3.1]}
+                  scale={sizes.deskScale}
+                  onRendered={() => setIsRendered(true)}
+                />
+              </HeroCamera>
 
-            <ambientLight intensity={0.8} />
-            <directionalLight position={[5.0, 0.1, 3.5]} intensity={0.5} />
-          </Suspense>
-        </Canvas>
+              <ambientLight intensity={0.8} />
+              <directionalLight position={[5.0, 0.1, 3.5]} intensity={0.5} />
+            </Suspense>
+          </Canvas>
+        ) : null}
       </div>
       <div
         className={`absolute bottom-7 left-0 right-0 w-full z-10 c-space ${poppy}`}
