@@ -11,7 +11,6 @@ import HeroCamera from "../components/HeroCamera";
 import Button from "../components/Button";
 
 const HackerRoom = lazy(() => import("../components/HackerRoom"));
-const Target = lazy(() => import("../components/Target"));
 const HackerRooMemo = memo(HackerRoom);
 const MemoizedCanvasLoader = memo(CanvasLoader);
 const MemoizedHackerRoom = ({ position, rotation, scale, onRendered }) => {
@@ -87,10 +86,6 @@ const Hero = () => {
                 onRendered={() => setIsRendered(true)}
               />
             </HeroCamera>
-
-            <group scale={isMobile || isSmall ? 0.5 : 1}>
-              <Target position={sizes.targetPosition} />
-            </group>
 
             <ambientLight intensity={0.8} />
             <directionalLight position={[5.0, 0.1, 3.5]} intensity={0.5} />
