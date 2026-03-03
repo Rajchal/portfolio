@@ -2,6 +2,7 @@ import { Suspense, memo, lazy, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { PerspectiveCamera } from "@react-three/drei";
 import CanvasLoader from "../components/CanvasLoader";
+import PropTypes from "prop-types";
 
 // import { Leva, useControls } from "leva";
 import { useMediaQuery } from "react-responsive";
@@ -27,6 +28,17 @@ const MemoizedHackerRoom = ({ position, rotation, scale, onRendered }) => {
   return (
     <HackerRooMemo position={position} rotation={rotation} scale={scale} />
   );
+};
+
+MemoizedHackerRoom.propTypes = {
+  position: PropTypes.arrayOf(PropTypes.number).isRequired,
+  rotation: PropTypes.arrayOf(PropTypes.number).isRequired,
+  scale: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]).isRequired,
+  onRendered: PropTypes.func,
+};
+
+MemoizedHackerRoom.defaultProps = {
+  onRendered: undefined,
 };
 
 const Hero = () => {

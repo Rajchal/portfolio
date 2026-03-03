@@ -1,6 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { easing } from "maath";
+import PropTypes from "prop-types";
 
 const HeroCamera = ({ children, isMobile }) => {
   const groupRef = useRef();
@@ -21,6 +22,11 @@ const HeroCamera = ({ children, isMobile }) => {
       {children}
     </group>
   );
+};
+
+HeroCamera.propTypes = {
+  children: PropTypes.node.isRequired,
+  isMobile: PropTypes.bool.isRequired,
 };
 
 export default HeroCamera;

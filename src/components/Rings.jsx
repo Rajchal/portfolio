@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import { Center, useTexture } from "@react-three/drei";
 import gsap from "gsap";
 import { useCallback, useRef } from "react";
+import PropTypes from "prop-types";
 
 const Rings = ({ position }) => {
   const refList = useRef([]);
@@ -55,6 +56,10 @@ const Rings = ({ position }) => {
       </group>
     </Center>
   );
+};
+
+Rings.propTypes = {
+  position: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default Rings;

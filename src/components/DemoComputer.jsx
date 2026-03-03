@@ -2,12 +2,13 @@ import { useEffect, useRef } from "react";
 import { useGLTF, useVideoTexture } from "@react-three/drei";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import PropTypes from "prop-types";
 
-const DemoComputer = (props) => {
+const DemoComputer = ({ texture, ...props }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF("/models/computer.glb");
   const txt = useVideoTexture(
-    props.texture ? props.texture : "/textures/project/project1.mp4"
+    texture ? texture : "/textures/project/project1.mp4"
   );
   useEffect(() => {
     if (txt) {
@@ -1010,6 +1011,14 @@ const DemoComputer = (props) => {
       </group>
     </group>
   );
+};
+
+DemoComputer.propTypes = {
+  texture: PropTypes.string,
+};
+
+DemoComputer.defaultProps = {
+  texture: undefined,
 };
 
 useGLTF.preload("/models/computer.glb");

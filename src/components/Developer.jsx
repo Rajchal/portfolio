@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
+import PropTypes from "prop-types";
 
 const Developer = ({ animationName = "idle", ...props }) => {
   const group = useRef();
@@ -140,4 +141,13 @@ const Developer = ({ animationName = "idle", ...props }) => {
 };
 
 useGLTF.preload("/models/animations/walla.glb");
+
+Developer.propTypes = {
+  animationName: PropTypes.string,
+};
+
+Developer.defaultProps = {
+  animationName: "idle",
+};
+
 export default Developer;
