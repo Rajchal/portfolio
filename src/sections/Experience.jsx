@@ -1,48 +1,35 @@
-import { Suspense, useState, memo, lazy } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { useState } from "react";
 
-import CanvasLoader from "../components/CanvasLoader.jsx";
 import { workExperiences } from "../constants/index.js";
-import { useMediaQuery } from "react-responsive";
-import useInView from "../hooks/useInView";
-
-const Developer = lazy(() => import("../components/Developer.jsx"));
-const MemoizedDeveloper = memo(Developer);
-const MemoizedCanvasLoader = memo(CanvasLoader);
 
 const WorkExperience = () => {
-  const isSmall = useMediaQuery({ maxWidth: 440 });
-  const [animationName, setAnimationName] = useState("idle");
-  const { ref: sectionRef, isInView } = useInView({ rootMargin: "250px" });
+  const [selectedExperienceIndex, setSelectedExperienceIndex] = useState(0);
+  const selectedExperience = workExperiences[selectedExperienceIndex];
 
   return (
-    <section ref={sectionRef} className="c-space my-20" id="experience">
+    <section className="c-space my-20" id="experience">
       <div className="w-full text-white-600">
         <h3 className="head-text pt-20">My Work Experience</h3>
 
         <div className="work-container">
           <div className="work-canvas">
-            {isInView ? (
-              <Canvas dpr={[1, 1.5]}>
-                <Suspense fallback={<MemoizedCanvasLoader />}>
-                  <ambientLight intensity={0.8} />
-                  <spotLight
-                    position={[10, 10, 10]}
-                    angle={0.15}
-                    penumbra={1}
+            <div className="w-full h-full rounded-2xl bg-black-200 border border-black-300 flex items-center justify-center p-8">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="w-20 h-20 rounded-xl bg-black-300 p-4">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={selectedExperience.icon}
+                    alt={selectedExperience.name}
                   />
-                  <directionalLight position={[10, 10, 10]} intensity={1} />
-                  <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
-
-                  <MemoizedDeveloper
-                    position-y={-3}
-                    scale={3}
-                    animationName={isSmall ? "idle" : animationName}
-                  />
-                </Suspense>
-              </Canvas>
-            ) : null}
+                </div>
+                <p className="text-white-800 font-semibold text-xl">
+                  {selectedExperience.name}
+                </p>
+                <p className="text-white-600 text-sm">
+                  {selectedExperience.pos} — {selectedExperience.duration}
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="work-content">
@@ -50,11 +37,8 @@ const WorkExperience = () => {
               {workExperiences.map((item, index) => (
                 <div
                   key={index}
-                  onClick={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOver={() =>
-                    setAnimationName(item.animation.toLowerCase())
-                  }
-                  onPointerOut={() => setAnimationName("idle")}
+                  onClick={() => setSelectedExperienceIndex(index)}
+                  onPointerOver={() => setSelectedExperienceIndex(index)}
                   className="work-content_container group"
                 >
                   <div className="flex flex-col h-full justify-start items-center py-2">

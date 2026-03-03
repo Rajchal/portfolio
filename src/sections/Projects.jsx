@@ -1,20 +1,10 @@
-import { useState, Suspense, lazy, memo } from "react";
+import { useState } from "react";
 import { myProjects } from "../constants";
-import { Canvas } from "@react-three/fiber";
-import { Center } from "@react-three/drei";
-import CanvasLoader from "../components/CanvasLoader";
-import { OrbitControls } from "@react-three/drei";
-import useInView from "../hooks/useInView";
-
-const DemoComputer = lazy(() => import("../components/DemoComputer"));
-const MemoizedDemoComputer = memo(DemoComputer);
-const MemoizedCanvasLoader = memo(CanvasLoader);
 
 const projectCount = myProjects.length;
 
 const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
-  const { ref: sectionRef, isInView } = useInView({ rootMargin: "250px" });
 
   const currentProject = myProjects[selectedProjectIndex];
   const handleNavigation = (direction) => {
@@ -27,7 +17,7 @@ const Projects = () => {
     });
   };
   return (
-    <section ref={sectionRef} className="c-space my-20  pt-20" id="work">
+    <section className="c-space my-20  pt-20" id="work">
       <p className="head-text">My Work</p>
       <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
         <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-sxl shadow-black-200">
@@ -106,20 +96,16 @@ const Projects = () => {
           </div>
         </div>
         <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
-          {isInView ? (
-            <Canvas dpr={[1, 1.5]}>
-              <ambientLight intensity={0.8} />
-              <directionalLight position={[10, 10, 5]} />
-              <Center>
-                <Suspense fallback={<MemoizedCanvasLoader />}>
-                  <group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]}>
-                    <MemoizedDemoComputer texture={currentProject.texture} />
-                  </group>
-                </Suspense>
-              </Center>
-              <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
-            </Canvas>
-          ) : null}
+          <video
+            key={currentProject.texture}
+            className="w-full h-full rounded-lg object-cover"
+            src={currentProject.texture}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
         </div>
       </div>
     </section>

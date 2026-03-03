@@ -1,7 +1,6 @@
 import Button from "../components/Button";
-import { useState, lazy, Suspense } from "react";
+import { useState } from "react";
 import LazyLoad from "react-lazyload";
-const Globe = lazy(() => import("react-globe.gl"));
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
@@ -55,32 +54,11 @@ const About = () => {
         <div className="col-span-1 xl:row-span-4">
           <div className="grid-container">
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
-              <LazyLoad offset={300} once>
-                <Suspense
-                  fallback={<div className="w-[326px] h-[326px] rounded-full" />}
-                >
-                  <Globe
-                    height={326}
-                    width={326}
-                    backgroundColor="rgba(0,0,0,0)"
-                    backgroundImageOpacity={0.5}
-                    showAtmosphere
-                    showGraticules
-                    globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
-                    bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                    labelsData={[
-                      {
-                        lat: 27.700769,
-                        lng: 85.30014,
-                        text: "I'm Here!",
-                      },
-                    ]}
-                    labelColor={() => "yellow"}
-                    labelDotRadius={1}
-                    labelSize={5}
-                  />
-                </Suspense>
-              </LazyLoad>
+              <img
+                src={`${import.meta.env.BASE_URL}assets/grid4.png`}
+                alt="location"
+                className="w-full h-full rounded-2xl object-cover"
+              />
             </div>
             <div>
               <h3 className="grid-headtext">
