@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 import { navLinks } from "../constants/index.js";
-const NavItems = ({ onClick = () => {} }) => (
+const NavItems = ({ onClick = () => { } }) => (
   <ul className="nav-ul">
     {navLinks.map((item) => (
       <li key={item.id} className="nav-li">
@@ -19,7 +19,7 @@ NavItems.propTypes = {
 };
 
 NavItems.defaultProps = {
-  onClick: () => {},
+  onClick: () => { },
 };
 
 const Navbar = () => {
