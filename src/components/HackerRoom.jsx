@@ -1,9 +1,11 @@
 import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
+const HACKER_ROOM_MODEL_PATH = `${import.meta.env.BASE_URL}models/space.glb`;
+
 const HackerRoom = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/models/space.glb");
+  const { nodes, materials } = useGLTF(HACKER_ROOM_MODEL_PATH);
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
@@ -499,6 +501,6 @@ const HackerRoom = (props) => {
   );
 };
 
-useGLTF.preload("/models/space.glb");
+useGLTF.preload(HACKER_ROOM_MODEL_PATH);
 
 export default HackerRoom;

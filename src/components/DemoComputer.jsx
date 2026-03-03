@@ -4,12 +4,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import PropTypes from "prop-types";
 
+const COMPUTER_MODEL_PATH = `${import.meta.env.BASE_URL}models/computer.glb`;
+const DEFAULT_PROJECT_TEXTURE_PATH = `${import.meta.env.BASE_URL}textures/project/project1.mp4`;
+
 const DemoComputer = ({ texture, ...props }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/models/computer.glb");
-  const txt = useVideoTexture(
-    texture ? texture : "/textures/project/project1.mp4"
-  );
+  const { nodes, materials } = useGLTF(COMPUTER_MODEL_PATH);
+  const txt = useVideoTexture(texture ? texture : DEFAULT_PROJECT_TEXTURE_PATH);
   useEffect(() => {
     if (txt) {
       txt.flipY = false;
@@ -1021,6 +1022,6 @@ DemoComputer.defaultProps = {
   texture: undefined,
 };
 
-useGLTF.preload("/models/computer.glb");
+useGLTF.preload(COMPUTER_MODEL_PATH);
 
 export default DemoComputer;

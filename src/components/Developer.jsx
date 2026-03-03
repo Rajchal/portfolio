@@ -2,19 +2,19 @@ import { useEffect, useRef } from "react";
 import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
 import PropTypes from "prop-types";
 
+const WALLA_MODEL_PATH = `${import.meta.env.BASE_URL}models/animations/walla.glb`;
+const IDLE_ANIMATION_PATH = `${import.meta.env.BASE_URL}models/animations/idle.fbx`;
+const SALUTE_ANIMATION_PATH = `${import.meta.env.BASE_URL}models/animations/twerk.fbx`;
+const CLAPPING_ANIMATION_PATH = `${import.meta.env.BASE_URL}models/animations/Rapping.fbx`;
+const VICTORY_ANIMATION_PATH = `${import.meta.env.BASE_URL}models/animations/disco.fbx`;
+
 const Developer = ({ animationName = "idle", ...props }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/models/animations/walla.glb");
-  const { animations: idleAnimation } = useFBX("/models/animations/idle.fbx");
-  const { animations: saluteAnimation } = useFBX(
-    "/models/animations/twerk.fbx"
-  );
-  const { animations: clappingAnimation } = useFBX(
-    "/models/animations/Rapping.fbx"
-  );
-  const { animations: victoryAnimation } = useFBX(
-    "/models/animations/disco.fbx"
-  );
+  const { nodes, materials } = useGLTF(WALLA_MODEL_PATH);
+  const { animations: idleAnimation } = useFBX(IDLE_ANIMATION_PATH);
+  const { animations: saluteAnimation } = useFBX(SALUTE_ANIMATION_PATH);
+  const { animations: clappingAnimation } = useFBX(CLAPPING_ANIMATION_PATH);
+  const { animations: victoryAnimation } = useFBX(VICTORY_ANIMATION_PATH);
 
   const cleanAnimationTrackNames = (animations, prefixToRemove) => {
     animations.forEach((animation) => {
@@ -140,7 +140,7 @@ const Developer = ({ animationName = "idle", ...props }) => {
   );
 };
 
-useGLTF.preload("/models/animations/walla.glb");
+useGLTF.preload(WALLA_MODEL_PATH);
 
 Developer.propTypes = {
   animationName: PropTypes.string,

@@ -31,7 +31,7 @@ const Clients = () => {
                   {Array.from({ length: 5 }).map((_, index) => (
                     <LazyLoad key={index}>
                       <img
-                        src="/assets/star.png"
+                        src={`${import.meta.env.BASE_URL}assets/star.png`}
                         alt="star"
                         className="w-5 h-5"
                       />

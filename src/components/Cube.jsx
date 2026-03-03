@@ -2,8 +2,10 @@ import { useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
+const CUBE_MODEL_PATH = `${import.meta.env.BASE_URL}models/anjal.glb`;
+
 const Cube = (props) => {
-  const { nodes, materials } = useGLTF("/models/anjal.glb");
+  const { nodes, materials } = useGLTF(CUBE_MODEL_PATH);
   const groupRef = useRef();
   const [scale, setScale] = useState(0.15);
   const [direction, setDirection] = useState(1);
@@ -43,5 +45,5 @@ const Cube = (props) => {
   );
 };
 
-useGLTF.preload("/models/anjal.glb");
+useGLTF.preload(CUBE_MODEL_PATH);
 export default Cube;

@@ -19,7 +19,7 @@ const About = () => {
           <div className="grid-container">
             <LazyLoad offset={816}>
               <img
-                src="/assets/grid1.png"
+                src={`${import.meta.env.BASE_URL}assets/grid1.png`}
                 alt="grid-1"
                 className="w-full sm:h-[276px] h-fit object-contain"
               />
@@ -37,7 +37,7 @@ const About = () => {
           <div className="grid-container flex items-center justify-center">
             <LazyLoad offset={700}>
               <img
-                src="/assets/greed.png"
+                src={`${import.meta.env.BASE_URL}assets/greed.png`}
                 alt="grid-2"
                 className="w-full sm:w-[276px] h-fit object-contain"
               />
@@ -98,7 +98,7 @@ const About = () => {
           <div className="grid-container">
             <LazyLoad offset={1608}>
               <img
-                src="/assets/grid3.png"
+                src={`${import.meta.env.BASE_URL}assets/grid3.png`}
                 alt="grid-3"
                 className="w-full sm:h-[266px] h-fit object-contain"
               />

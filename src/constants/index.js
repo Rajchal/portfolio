@@ -1,3 +1,5 @@
+const fromPublic = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 export const navLinks = [
   {
     id: 1,
@@ -31,7 +33,7 @@ export const clientReviews = [
     id: 1,
     name: "Pranav Karmacharya",
     position: "Marketing Director at Black Face",
-    img: "assets/pranav.png",
+    img: fromPublic("assets/pranav.png"),
     review:
       "It's been a true pleasure working with Anjal. They consistently bring innovative ideas to the table and have a clear vision for their goals, making every partnership smooth and rewarding. Looking forward to many more successful collaborations!",
   },
@@ -39,7 +41,7 @@ export const clientReviews = [
     id: 2,
     name: "Krishal Shilpakar",
     position: "Founder of Shilpakar Enterprises",
-    img: "assets/krishal.png",
+    img: fromPublic("assets/krishal.png"),
     review:
       "Beyond his technical skills, Anjal is a great communicator, always ensuring a clear understanding of project requirements and providing regular updates. His dedication to meeting deadlines and exceeding expectations is impressive.",
   },
@@ -47,7 +49,7 @@ export const clientReviews = [
     id: 3,
     name: "Abheet Budhathoki",
     position: "CEO of Budhathoki Handicrafts",
-    img: "assets/abheet.png",
+    img: fromPublic("assets/abheet.png"),
     review:
       "If you’re a startup founder looking for a developer who can deliver exceptional results, Anjal is the one to call. I look forward to partnering with him on future projects!",
   },
@@ -60,34 +62,34 @@ export const myProjects = [
     subdesc:
       "Built with Next.js, TailwindCSS, TypeScript, and Framer Motion, Cook Fresh provides a seamless user experience, with features like search filters, recipe categories, and a user-friendly interface.",
     href: "https://www.cookfresh.online",
-    texture: "/textures/project/cookydemo.mp4",
-    logo: "/assets/proj1.svg",
+    texture: fromPublic("textures/project/cookydemo.mp4"),
+    logo: fromPublic("assets/proj1.svg"),
     logoStyle: {
       backgroundColor: "#FFFFFF",
       border: "0.2px solid #36201D",
       boxShadow: "0px 0px 60px 0px #AA3C304D",
     },
-    spotlight: "/assets/spotlight1.png",
+    spotlight: fromPublic("assets/spotlight1.png"),
     tags: [
       {
         id: 1,
         name: "React.js",
-        path: "/assets/react.svg",
+        path: fromPublic("assets/react.svg"),
       },
       {
         id: 2,
         name: "TailwindCSS",
-        path: "assets/tailwindcss.png",
+        path: fromPublic("assets/tailwindcss.png"),
       },
       {
         id: 3,
         name: "TypeScript",
-        path: "/assets/typescript.png",
+        path: fromPublic("assets/typescript.png"),
       },
       {
         id: 4,
         name: "Framer Motion",
-        path: "/assets/framer.png",
+        path: fromPublic("assets/framer.png"),
       },
     ],
   },
@@ -97,34 +99,34 @@ export const myProjects = [
     subdesc:
       "Built with React.js, TailwindCSS, TypeScript, and Next Js, Landing Page offers a seamless user experience, with features like smooth animations, responsive design, and a user-friendly interface.",
     href: "https://www.itgyanepal.com/membership",
-    texture: "/textures/project/itgyandemo.mp4",
-    logo: "/assets/itgyanepal.png",
+    texture: fromPublic("textures/project/itgyandemo.mp4"),
+    logo: fromPublic("assets/itgyanepal.png"),
     logoStyle: {
       backgroundColor: "#13202F",
       border: "0.2px solid #17293E",
       boxShadow: "0px 0px 60px 0px #2F6DB54D",
     },
-    spotlight: "/assets/spotlight2.png",
+    spotlight: fromPublic("assets/spotlight2.png"),
     tags: [
       {
         id: 1,
         name: "React.js",
-        path: "/assets/react.svg",
+        path: fromPublic("assets/react.svg"),
       },
       {
         id: 2,
         name: "TailwindCSS",
-        path: "assets/tailwindcss.png",
+        path: fromPublic("assets/tailwindcss.png"),
       },
       {
         id: 3,
         name: "TypeScript",
-        path: "/assets/typescript.png",
+        path: fromPublic("assets/typescript.png"),
       },
       {
         id: 4,
         name: "Next Js",
-        path: "/assets/next.png",
+        path: fromPublic("assets/next.png"),
       },
     ],
   },
@@ -134,8 +136,8 @@ export const myProjects = [
     subdesc:
       "It provides AI support for answers and questions, and a user-friendly interface. Built with React.js, TailwindCSS, TypeScript, and NextJs, IT GyaNepal offers a seamless user experience, with features like search filters, study materials, and a user-friendly interface.",
     href: "https://www.itgyanepal.com/",
-    texture: "/textures/project/itgyandemo.mp4",
-    logo: "/assets/itgyanepal.png",
+    texture: fromPublic("textures/project/itgyandemo.mp4"),
+    logo: fromPublic("assets/itgyanepal.png"),
     logoStyle: {
       backgroundColor: "#60f5a1",
       background:
@@ -143,27 +145,27 @@ export const myProjects = [
       border: "0.2px solid rgba(208, 213, 221, 1)",
       boxShadow: "0px 0px 60px 0px rgba(35, 131, 96, 0.3)",
     },
-    spotlight: "/assets/spotlight3.png",
+    spotlight: fromPublic("assets/spotlight3.png"),
     tags: [
       {
         id: 1,
         name: "React.js",
-        path: "/assets/react.svg",
+        path: fromPublic("assets/react.svg"),
       },
       {
         id: 2,
         name: "TailwindCSS",
-        path: "assets/tailwindcss.png",
+        path: fromPublic("assets/tailwindcss.png"),
       },
       {
         id: 3,
         name: "TypeScript",
-        path: "/assets/typescript.png",
+        path: fromPublic("assets/typescript.png"),
       },
       {
         id: 4,
         name: "Next Js",
-        path: "/assets/next.png",
+        path: fromPublic("assets/next.png"),
       },
     ],
   },
@@ -225,7 +227,7 @@ export const workExperiences = [
     duration: "2022 - Present",
     title:
       "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-    icon: "/assets/framer.svg",
+    icon: fromPublic("assets/framer.svg"),
     animation: "victory",
   },
   {
@@ -235,7 +237,7 @@ export const workExperiences = [
     duration: "2020 - 2022",
     title:
       "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-    icon: "/assets/figma.svg",
+    icon: fromPublic("assets/figma.svg"),
     animation: "clapping",
   },
   {
@@ -245,7 +247,7 @@ export const workExperiences = [
     duration: "2019 - 2020",
     title:
       "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-    icon: "/assets/notion.svg",
+    icon: fromPublic("assets/notion.svg"),
     animation: "salute",
   },
 ];

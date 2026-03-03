@@ -15,7 +15,7 @@ const Footer = () => {
         >
           <div className="social-icon">
             <img
-              src="/assets/github.svg"
+              src={`${import.meta.env.BASE_URL}assets/github.svg`}
               alt="github"
               className="w-1/2 h-1/2"
             />
@@ -28,7 +28,7 @@ const Footer = () => {
         >
           <div className="social-icon">
             <img
-              src="/assets/facebook.svg"
+              src={`${import.meta.env.BASE_URL}assets/facebook.svg`}
               alt="twitter"
               className="w-[30px] h-[30px]"
             />
@@ -41,7 +41,7 @@ const Footer = () => {
         >
           <div className="social-icon">
             <img
-              src="/assets/instagram.svg"
+              src={`${import.meta.env.BASE_URL}assets/instagram.svg`}
               alt="instagram"
               className="w-1/2 h-1/2"
             />

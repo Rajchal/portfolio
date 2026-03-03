@@ -53,7 +53,7 @@ const Projects = () => {
                 onClick={() => handleNavigation("previous")}
               >
                 <img
-                  src="/assets/left-arrow.png"
+                  src={`${import.meta.env.BASE_URL}assets/left-arrow.png`}
                   alt="left arrow"
                   className="w-4 h-4"
                 />
@@ -63,7 +63,7 @@ const Projects = () => {
                 onClick={() => handleNavigation("next")}
               >
                 <img
-                  src="/assets/right-arrow.png"
+                  src={`${import.meta.env.BASE_URL}assets/right-arrow.png`}
                   alt="right arrow"
                   className="w-4 h-4"
                 />
@@ -95,7 +95,11 @@ const Projects = () => {
               rel="noreferrer"
             >
               <p>Check Live Site</p>
-              <img src="/assets/arrow-up.png" className="w-3 h-3" alt="arrow" />
+              <img
+                src={`${import.meta.env.BASE_URL}assets/arrow-up.png`}
+                className="w-3 h-3"
+                alt="arrow"
+              />
             </a>
           </div>
         </div>

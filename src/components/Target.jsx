@@ -3,8 +3,10 @@ import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
+const TARGET_MODEL_PATH = `${import.meta.env.BASE_URL}models/ts.glb`;
+
 const Target = (props) => {
-  const { nodes, materials } = useGLTF("/models/ts.glb");
+  const { nodes, materials } = useGLTF(TARGET_MODEL_PATH);
   const groupRef = useRef();
   const [up, setUp] = useState(true);
 
@@ -41,5 +43,5 @@ const Target = (props) => {
   );
 };
 
-useGLTF.preload("/models/ts.glb");
+useGLTF.preload(TARGET_MODEL_PATH);
 export default Target;

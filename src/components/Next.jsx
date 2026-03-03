@@ -6,9 +6,12 @@ import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
+
+const NEXT_MODEL_PATH = `${import.meta.env.BASE_URL}models/Nxt.glb`;
+
 const Next = (props) => {
   const groupRef = useRef();
-  const { nodes, materials } = useGLTF("/models/Nxt.glb");
+  const { nodes, materials } = useGLTF(NEXT_MODEL_PATH);
 
   useFrame(() => {
     if (groupRef.current) {
