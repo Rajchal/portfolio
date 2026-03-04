@@ -11,6 +11,11 @@ import HeroCamera from "../components/HeroCamera";
 import Button from "../components/Button";
 
 const HackerRoom = lazy(() => import("../components/HackerRoom"));
+const ReactLogo = lazy(() => import("../components/ReactLogo"));
+const Cube = lazy(() => import("../components/Cube"));
+const Rings = lazy(() => import("../components/Rings"));
+const Target = lazy(() => import("../components/Target"));
+const Next = lazy(() => import("../components/Next"));
 const HackerRooMemo = memo(HackerRoom);
 const MemoizedCanvasLoader = memo(CanvasLoader);
 const MemoizedHackerRoom = ({ position, rotation, scale, onRendered }) => {
@@ -74,7 +79,7 @@ const Hero = () => {
       </div>
       <div className="w-full h-full absolute inset-0">
         {/* <Leva /> */}
-        <Canvas className="w-full h-full" dpr={[1, 1.5]}>
+        <Canvas className="w-full h-full" shadows dpr={[1, 2]}>
           <Suspense fallback={<MemoizedCanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
             <HeroCamera isMobile={isSmall}>
@@ -87,8 +92,28 @@ const Hero = () => {
               />
             </HeroCamera>
 
+            <group scale={isMobile || isSmall ? 0.5 : 1}>
+              <Target
+                position={[
+                  sizes.targetPosition[0] + 20,
+                  sizes.targetPosition[1] + 11,
+                  sizes.targetPosition[2],
+                ]}
+              />
+              <ReactLogo position={sizes.reactLogoPosition} />
+              <Cube position={sizes.cubePosition} isMob={isMobile} />
+              <Rings position={sizes.ringPosition} />
+              <Next
+                position={[
+                  sizes.nextPosition[0] - 20,
+                  sizes.nextPosition[1] - 6.5,
+                  sizes.nextPosition[2],
+                ]}
+              />
+            </group>
+
             <ambientLight intensity={0.8} />
-            <directionalLight position={[5.0, 0.1, 3.5]} intensity={0.5} />
+            <directionalLight position={[0, 10, 0]} intensity={2.0} />
           </Suspense>
         </Canvas>
       </div>

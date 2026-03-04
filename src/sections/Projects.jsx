@@ -26,7 +26,7 @@ const Projects = () => {
 
     const intervalId = setInterval(() => {
       handleNavigation("next", false);
-    }, 1000);
+    }, 1750);
 
     return () => clearInterval(intervalId);
   }, [isAutoPaused]);
@@ -40,7 +40,6 @@ const Projects = () => {
         <div
           className="project-card"
           onPointerDown={handleUserInteraction}
-          onFocus={handleUserInteraction}
         >
           <div className="absolute top-0 right-0 opacity-70 pointer-events-none">
             <img
@@ -65,6 +64,19 @@ const Projects = () => {
               <div className="text-xs text-white-600 hidden sm:block">
                 {String(selectedProjectIndex + 1).padStart(2, "0")} / {String(projectCount).padStart(2, "0")}
               </div>
+
+              <button
+                type="button"
+                className="project-auto-toggle"
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setIsAutoPaused((prev) => !prev);
+                }}
+                aria-label={isAutoPaused ? "Resume autoplay" : "Pause autoplay"}
+              >
+                <span className="text-sm leading-none">{isAutoPaused ? "▶" : "❚❚"}</span>
+              </button>
 
               <button
                 type="button"

@@ -107,6 +107,10 @@
     @apply w-7 bg-white;
   }
 
+  .project-auto-toggle {
+    @apply w-10 h-10 rounded-full border border-white/25 bg-white/5 text-white flex items-center justify-center transition-colors hover:bg-white/10;
+  }
+
   .arrow-btn {
     @apply w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient;
   }
