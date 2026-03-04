@@ -1,11 +1,22 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/kubernetes_k8s_3d_logo.glb')
+const K8S_MODEL_PATH = `${import.meta.env.BASE_URL}models/k8s.glb`
+
+const K8s = (props) => {
+  const { nodes, materials } = useGLTF(K8S_MODEL_PATH)
+  const groupRef = useRef()
+
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.z += 0.01
+    }
+  })
+
   return (
     <group {...props} dispose={null}>
-      <group position={[0, 0, -0.002]}>
+      <group ref={groupRef} position={[0, 0, -0.002]}>
         <mesh
           castShadow
           receiveShadow
@@ -23,4 +34,6 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('/kubernetes_k8s_3d_logo.glb')
+useGLTF.preload(K8S_MODEL_PATH)
+
+export default K8s

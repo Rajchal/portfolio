@@ -102,8 +102,16 @@ const Hero = () => {
                 rotation={[-0.5, 4.2, 6.2]}
                 scale={0.8}
               />
-              <ReactLogo position={sizes.reactLogoPosition} />
-              <Cube position={sizes.cubePosition} isMob={isMobile} />
+              <ReactLogo
+                position={sizes.reactLogoPosition}
+                rotation={[-0.5, 5.3, 0]}
+                scale={24}
+              />
+              <Cube
+                position={sizes.cubePosition}
+                rotation={[0.5, -0.3, -0.4]}
+                isMob={isMobile}
+              />
               <Rings position={sizes.ringPosition} />
               <Next
                 position={[
@@ -116,7 +124,7 @@ const Hero = () => {
 
             <ambientLight intensity={1.8} />
             <directionalLight position={[0, 10, 0]} intensity={3.0} />
-            <pointLight position={[-0, 10, -0]} intensity={30.5} />
+            <pointLight position={[-0, 10, -0]} intensity={200} />
           </Suspense>
         </Canvas>
       </div>
