@@ -95,6 +95,42 @@
     @apply flex justify-between items-start gap-4 z-10 relative;
   }
 
+  .project-preview {
+    @apply border border-black-300 bg-black-200 rounded-lg h-96 md:h-full overflow-hidden p-3 flex items-center justify-center;
+  }
+
+  .project-collage {
+    @apply w-full h-full grid gap-2;
+  }
+
+  .project-collage-item {
+    @apply overflow-hidden rounded-lg border border-black-300 bg-black-300;
+  }
+
+  .project-collage-item img {
+    @apply w-full h-full object-cover;
+  }
+
+  .project-collage-one {
+    @apply grid-cols-1 grid-rows-1;
+  }
+
+  .project-collage-two {
+    @apply grid-cols-2 grid-rows-1;
+  }
+
+  .project-collage-three {
+    @apply grid-cols-2 grid-rows-2;
+  }
+
+  .project-collage-three .project-collage-item-1 {
+    @apply row-span-2;
+  }
+
+  .project-collage-many {
+    @apply grid-cols-2 grid-rows-2;
+  }
+
   .project-progress {
     @apply flex items-center gap-2 pt-2 z-10 relative;
   }

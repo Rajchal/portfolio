@@ -8,6 +8,16 @@ const Projects = () => {
   const [isAutoPaused, setIsAutoPaused] = useState(false);
 
   const currentProject = myProjects[selectedProjectIndex];
+  const previewImages = currentProject.images?.length
+    ? currentProject.images
+    : [currentProject.spotlight];
+
+  const getCollageClass = (count) => {
+    if (count <= 1) return "project-collage-one";
+    if (count === 2) return "project-collage-two";
+    if (count === 3) return "project-collage-three";
+    return "project-collage-many";
+  };
 
   const handleNavigation = (direction, shouldPause = true) => {
     if (shouldPause) setIsAutoPaused(true);
@@ -156,20 +166,20 @@ const Projects = () => {
           </div>
         </div>
 
-        <div
-          className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full overflow-hidden"
-          onPointerDown={handleUserInteraction}
-        >
-          <video
-            key={currentProject.texture}
-            className="w-full h-full rounded-lg object-cover project-content-animate"
-            src={currentProject.texture}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          />
+        <div className="project-preview" onPointerDown={handleUserInteraction}>
+          <div
+            key={`collage-${selectedProjectIndex}`}
+            className={`project-collage ${getCollageClass(previewImages.length)} project-content-animate`}
+          >
+            {previewImages.map((image, index) => (
+              <div
+                key={`${image}-${index}`}
+                className={`project-collage-item project-collage-item-${index + 1}`}
+              >
+                <img src={image} alt={`${currentProject.title} preview ${index + 1}`} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

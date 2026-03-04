@@ -57,118 +57,102 @@ export const clientReviews = [
 
 export const myProjects = [
   {
-    title: "Cook Fresh - Recipe Finding Platform",
-    desc: "Cook Fresh is a recipe-finding platform that helps users discover new dishes and cooking techniques. It offers a vast collection of recipes, cooking tips, and meal plans, making it easy for users to find the perfect recipe for any occasion.",
+    title: "Aegis – High-Performance Layer 7 Reverse Proxy",
+    desc: "Aegis is a lightweight, high-performance Layer 7 reverse proxy built in Rust, designed to handle concurrent HTTP traffic with load balancing, health checks, and rate limiting.",
     subdesc:
-      "Built with Next.js, TailwindCSS, TypeScript, and Framer Motion, Cook Fresh provides a seamless user experience, with features like search filters, recipe categories, and a user-friendly interface.",
-    href: "https://www.cookfresh.online",
-    texture: fromPublic("textures/project/cookydemo.mp4"),
-    logo: fromPublic("assets/proj1.svg"),
+      "Built using Tokio for async runtime and Hyper/Axum for HTTP handling, Aegis implements round-robin load balancing, active health monitoring of upstream services, request rate limiting, and structured logging via Tracing. Designed to explore networking internals, concurrency, and production-grade infrastructure concepts in Rust.",
+    href: "https://github.com/yourusername/aegis-proxy",
+    images: [
+      fromPublic("assets/star.png"),
+      fromPublic("assets/star.png"),
+      fromPublic("assets/star.png"),
+    ],
+    logo: fromPublic("assets/rust.svg"),
     logoStyle: {
-      backgroundColor: "#FFFFFF",
-      border: "0.2px solid #36201D",
-      boxShadow: "0px 0px 60px 0px #AA3C304D",
+      backgroundColor: "#1e1e1e",
+      border: "0.2px solid #2b2b2b",
+      boxShadow: "0px 0px 60px 0px rgba(249, 104, 0, 0.35)",
     },
-    spotlight: fromPublic("assets/spotlight1.png"),
+    spotlight: fromPublic("assets/spotlight4.png"),
     tags: [
       {
         id: 1,
-        name: "React.js",
-        path: fromPublic("assets/react.svg"),
+        name: "Rust",
+        path: fromPublic("assets/rust.svg"),
       },
       {
         id: 2,
-        name: "TailwindCSS",
-        path: fromPublic("assets/tailwindcss.png"),
+        name: "Tokio",
+        path: fromPublic("assets/tokio.svg"),
       },
       {
         id: 3,
-        name: "TypeScript",
-        path: fromPublic("assets/typescript.png"),
+        name: "Hyper",
+        path: fromPublic("assets/hyper.svg"),
       },
       {
         id: 4,
-        name: "Framer Motion",
-        path: fromPublic("assets/framer.png"),
+        name: "Axum",
+        path: fromPublic("assets/axum.svg"),
+      },
+      {
+        id: 5,
+        name: "Tracing",
+        path: fromPublic("assets/tracing.svg"),
       },
     ],
   },
   {
-    title: "Landing Page - landing page for a IT GyaNepal",
-    desc: "Landing Page is a modern, responsive landing page template designed for IT GyaNepal, a Note providing website. It features a clean, professional design with a focus on user experience and conversion optimization.",
+    title: "ChainDeploy – GitOps Smart Contract Deployment Pipeline",
+    desc: "ChainDeploy is a CI/CD pipeline for automated smart contract testing, building, and deployment triggered via GitOps workflows.",
     subdesc:
-      "Built with React.js, TailwindCSS, TypeScript, and Next Js, Landing Page offers a seamless user experience, with features like smooth animations, responsive design, and a user-friendly interface.",
-    href: "https://www.itgyanepal.com/membership",
-    texture: fromPublic("textures/project/itgyandemo.mp4"),
-    logo: fromPublic("assets/itgyanepal.png"),
+      "Integrated GitHub Actions with containerized testing environments, automated contract verification, and deployment to testnets. Includes environment-based configuration, secret management, and rollback simulation.",
+    href: "https://github.com/yourusername/chaindeploy",
+    images: [
+      fromPublic("assets/star.png"),
+      fromPublic("assets/star.png"),
+      fromPublic("assets/star.png"),
+    ],
+    logo: fromPublic("assets/github.svg"),
     logoStyle: {
-      backgroundColor: "#13202F",
-      border: "0.2px solid #17293E",
-      boxShadow: "0px 0px 60px 0px #2F6DB54D",
+      backgroundColor: "#111111",
+      border: "0.2px solid #333",
+      boxShadow: "0px 0px 60px 0px rgba(255, 255, 255, 0.2)",
     },
-    spotlight: fromPublic("assets/spotlight2.png"),
+    spotlight: fromPublic("assets/spotlight7.png"),
     tags: [
-      {
-        id: 1,
-        name: "React.js",
-        path: fromPublic("assets/react.svg"),
-      },
-      {
-        id: 2,
-        name: "TailwindCSS",
-        path: fromPublic("assets/tailwindcss.png"),
-      },
-      {
-        id: 3,
-        name: "TypeScript",
-        path: fromPublic("assets/typescript.png"),
-      },
-      {
-        id: 4,
-        name: "Next Js",
-        path: fromPublic("assets/next.png"),
-      },
+      { id: 1, name: "GitHub Actions", path: fromPublic("assets/githubactions.svg") },
+      { id: 2, name: "Docker", path: fromPublic("assets/docker.svg") },
+      { id: 3, name: "Web3", path: fromPublic("assets/ethereum.svg") },
+      { id: 4, name: "CI/CD", path: fromPublic("assets/cicd.svg") },
     ],
   },
   {
-    title: "IT GyaNepal - Study Material Platform",
-    desc: "IT GyaNepal is a study material platform that provides students with access to a wide range of educational resources, including notes, tutorials, and practice tests. It offers a user-friendly interface and a seamless learning experience.",
+    title: "HydraRPC – Distributed Web3 RPC Gateway",
+    desc: "HydraRPC is a high-availability, multi-region RPC gateway designed to route blockchain requests across multiple full nodes with automatic failover and latency-based load balancing.",
     subdesc:
-      "It provides AI support for answers and questions, and a user-friendly interface. Built with React.js, TailwindCSS, TypeScript, and NextJs, IT GyaNepal offers a seamless user experience, with features like search filters, study materials, and a user-friendly interface.",
-    href: "https://www.itgyanepal.com/",
-    texture: fromPublic("textures/project/itgyandemo.mp4"),
-    logo: fromPublic("assets/itgyanepal.png"),
-    logoStyle: {
-      backgroundColor: "#60f5a1",
-      background:
-        "linear-gradient(0deg, #60F5A150, #60F5A150), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(208, 213, 221, 0.8) 100%)",
-      border: "0.2px solid rgba(208, 213, 221, 1)",
-      boxShadow: "0px 0px 60px 0px rgba(35, 131, 96, 0.3)",
-    },
-    spotlight: fromPublic("assets/spotlight3.png"),
-    tags: [
-      {
-        id: 1,
-        name: "React.js",
-        path: fromPublic("assets/react.svg"),
-      },
-      {
-        id: 2,
-        name: "TailwindCSS",
-        path: fromPublic("assets/tailwindcss.png"),
-      },
-      {
-        id: 3,
-        name: "TypeScript",
-        path: fromPublic("assets/typescript.png"),
-      },
-      {
-        id: 4,
-        name: "Next Js",
-        path: fromPublic("assets/next.png"),
-      },
+      "Built using Rust for performance-critical routing, Docker for containerization, and deployed across multiple cloud regions. The system includes health checks, rate limiting, Prometheus metrics, and Grafana dashboards for real-time monitoring. Designed to simulate production-grade Ethereum/Solana RPC infrastructure.",
+    href: "https://github.com/yourusername/hydra-rpc",
+    images: [
+      fromPublic("assets/star.png"),
+      fromPublic("assets/star.png"),
+      fromPublic("assets/star.png"),
     ],
-  },
+    logo: fromPublic("assets/rust.svg"),
+    logoStyle: {
+      backgroundColor: "#1e1e1e",
+      border: "0.2px solid #333",
+      boxShadow: "0px 0px 60px 0px rgba(249, 104, 0, 0.4)",
+    },
+    spotlight: fromPublic("assets/spotlight4.png"),
+    tags: [
+      { id: 1, name: "Rust", path: fromPublic("assets/rust.svg") },
+      { id: 2, name: "Docker", path: fromPublic("assets/docker.svg") },
+      { id: 3, name: "Prometheus", path: fromPublic("assets/prometheus.svg") },
+      { id: 4, name: "Grafana", path: fromPublic("assets/grafana.svg") },
+      { id: 5, name: "AWS", path: fromPublic("assets/aws.svg") },
+    ],
+  }
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet, isAwk) => {
