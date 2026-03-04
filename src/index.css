@@ -53,7 +53,7 @@
 
   /* button component */
   .btn {
-    @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300  transition-all active:scale-95 text-white mx-auto;
+    @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300 transition-all active:scale-95 text-white mx-auto;
   }
 
   .btn-ping {
@@ -87,6 +87,26 @@
   }
 
   /* projects section  */
+  .project-card {
+    @apply flex flex-col gap-5 relative sm:p-10 py-8 px-5 rounded-2xl border border-black-300 bg-black-200 overflow-hidden shadow-2xl shadow-black-200;
+  }
+
+  .project-card-header {
+    @apply flex justify-between items-start gap-4 z-10 relative;
+  }
+
+  .project-progress {
+    @apply flex items-center gap-2 pt-2 z-10 relative;
+  }
+
+  .project-dot {
+    @apply w-2.5 h-2.5 rounded-full bg-white/20 transition-all duration-300;
+  }
+
+  .project-dot-active {
+    @apply w-7 bg-white;
+  }
+
   .arrow-btn {
     @apply w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient;
   }
@@ -122,7 +142,7 @@
   }
 
   .work-content_container {
-    @apply grid grid-cols-[auto_1fr] items-start gap-5  transition-all ease-in-out duration-500 cursor-pointer hover:bg-black-300 rounded-lg sm:px-5 px-2.5;
+    @apply grid grid-cols-[auto_1fr] items-start gap-5 transition-all ease-in-out duration-500 cursor-pointer hover:bg-black-300 rounded-lg sm:px-5 px-2.5;
   }
 
   .work-content_logo {
@@ -169,38 +189,59 @@
 }
 
 .arrow-gradient {
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.1) 10%,
-    rgba(255, 255, 255, 0.000025) 50%,
-    rgba(255, 255, 255, 0.000025) 50%,
-    rgba(255, 255, 255, 0.025) 100%
-  );
+  background-image: linear-gradient(to right,
+      rgba(255, 255, 255, 0.1) 10%,
+      rgba(255, 255, 255, 0.000025) 50%,
+      rgba(255, 255, 255, 0.000025) 50%,
+      rgba(255, 255, 255, 0.025) 100%);
+}
+
+.project-content-animate {
+  animation: project-fade-slide 420ms ease both;
 }
 
 @keyframes wave-animation {
   0% {
     transform: rotate(0deg);
   }
+
   15% {
     transform: rotate(14deg);
   }
+
   30% {
     transform: rotate(-8deg);
   }
+
   40% {
     transform: rotate(14deg);
   }
+
   50% {
     transform: rotate(-4deg);
   }
+
   60% {
     transform: rotate(10deg);
   }
+
   70% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes project-fade-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
