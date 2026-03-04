@@ -11,11 +11,11 @@ import HeroCamera from "../components/HeroCamera";
 import Button from "../components/Button";
 
 const HackerRoom = lazy(() => import("../components/HackerRoom"));
-const ReactLogo = lazy(() => import("../components/ReactLogo"));
+const ReactLogo = lazy(() => import("../components/K8s"));
 const Cube = lazy(() => import("../components/Cube"));
 const Rings = lazy(() => import("../components/Rings"));
-const Target = lazy(() => import("../components/Target"));
-const Next = lazy(() => import("../components/Next"));
+const Target = lazy(() => import("../components/Rust"));
+const Next = lazy(() => import("../components/Aws"));
 const HackerRooMemo = memo(HackerRoom);
 const MemoizedCanvasLoader = memo(CanvasLoader);
 const MemoizedHackerRoom = ({ position, rotation, scale, onRendered }) => {
@@ -99,6 +99,8 @@ const Hero = () => {
                   sizes.targetPosition[1] + 11,
                   sizes.targetPosition[2],
                 ]}
+                rotation={[-0.5, 4.2, 6.2]}
+                scale={0.8}
               />
               <ReactLogo position={sizes.reactLogoPosition} />
               <Cube position={sizes.cubePosition} isMob={isMobile} />
@@ -112,8 +114,9 @@ const Hero = () => {
               />
             </group>
 
-            <ambientLight intensity={0.8} />
-            <directionalLight position={[0, 10, 0]} intensity={2.0} />
+            <ambientLight intensity={1.8} />
+            <directionalLight position={[0, 10, 0]} intensity={3.0} />
+            <pointLight position={[-0, 10, -0]} intensity={30.5} />
           </Suspense>
         </Canvas>
       </div>

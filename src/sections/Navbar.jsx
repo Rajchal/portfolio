@@ -18,10 +18,6 @@ NavItems.propTypes = {
   onClick: PropTypes.func,
 };
 
-NavItems.defaultProps = {
-  onClick: () => { },
-};
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen((prev) => !prev);
