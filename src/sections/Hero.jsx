@@ -74,12 +74,17 @@ const Hero = () => {
           Hi, I am Anjal <span className="waving-hand">👋</span>{" "}
         </h1>
         <h2 className="hero_tag text-gray_gradient text-center">
-          Turning Ideas into Interactive Experiences
+          Web3 Infrastructure & DevOps Engineer
         </h2>
       </div>
       <div className="w-full h-full absolute inset-0">
         {/* <Leva /> */}
-        <Canvas className="w-full h-full" shadows dpr={[1, 2]}>
+        <Canvas
+          className="w-full h-full"
+          shadows
+          dpr={[1, 1.5]}
+          gl={{ antialias: false, powerPreference: "high-performance" }}
+        >
           <Suspense fallback={<MemoizedCanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
             <HeroCamera isMobile={isSmall}>
@@ -122,9 +127,9 @@ const Hero = () => {
               />
             </group>
 
-            <ambientLight intensity={1.8} />
-            <directionalLight position={[0, 10, 0]} intensity={3.0} />
-            <pointLight position={[-0, 10, -0]} intensity={200} />
+            <ambientLight intensity={1.1} />
+            <directionalLight position={[0, 10, 0]} intensity={3} />
+
           </Suspense>
         </Canvas>
       </div>

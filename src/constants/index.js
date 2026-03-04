@@ -35,7 +35,7 @@ export const clientReviews = [
     position: "Marketing Director at Black Face",
     img: fromPublic("assets/pranav.png"),
     review:
-      "It's been a true pleasure working with Anjal. They consistently bring innovative ideas to the table and have a clear vision for their goals, making every partnership smooth and rewarding. Looking forward to many more successful collaborations!",
+      "Working with Anjal has been an excellent experience. His ability to understand complex requirements and translate them into scalable technical solutions makes him a valuable engineer for any project.",
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ export const clientReviews = [
     position: "Founder of Shilpakar Enterprises",
     img: fromPublic("assets/krishal.png"),
     review:
-      "Beyond his technical skills, Anjal is a great communicator, always ensuring a clear understanding of project requirements and providing regular updates. His dedication to meeting deadlines and exceeding expectations is impressive.",
+      "Anjal combines strong technical expertise with clear communication. He consistently delivers reliable systems and always ensures projects are completed efficiently and on time.",
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ export const clientReviews = [
     position: "CEO of Budhathoki Handicrafts",
     img: fromPublic("assets/abheet.png"),
     review:
-      "If you’re a startup founder looking for a developer who can deliver exceptional results, Anjal is the one to call. I look forward to partnering with him on future projects!",
+      "If you're looking for someone who can design and build dependable software systems, Anjal is a great choice. His problem-solving skills and dedication stand out.",
   },
 ];
 
@@ -222,32 +222,32 @@ export const calculateSizes = (isSmall, isMobile, isTablet, isAwk) => {
 export const workExperiences = [
   {
     id: 1,
-    name: "Framer",
-    pos: "Lead Web Developer",
-    duration: "2022 - Present",
+    name: "Network Engineer",
+    pos: "Dishhome- Network Operations Center",
+    duration: "2023 - 2024",
     title:
-      "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-    icon: fromPublic("assets/framer.svg"),
+      "Worked in the Network Operations Center monitoring large-scale network infrastructure, troubleshooting connectivity issues, and ensuring uptime of critical systems. Gained hands-on experience with Linux systems, networking protocols, and production incident response.",
+    icon: fromPublic("assets/tux.svg"),
     animation: "victory",
   },
   {
     id: 2,
-    name: "Figma",
-    pos: "Web Developer",
-    duration: "2020 - 2022",
+    name: "Freelance Development",
+    pos: "Backend & Web Developer",
+    duration: "2022 - Present",
     title:
-      "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-    icon: fromPublic("assets/figma.svg"),
+      "Developed full-stack web platforms and backend systems for multiple clients. Built REST APIs, implemented authentication systems, deployed applications using Docker and cloud infrastructure, and optimized performance for production workloads.",
+    icon: fromPublic("assets/docker.svg"),
     animation: "clapping",
   },
   {
     id: 3,
-    name: "Notion",
-    pos: "Junior Web Developer",
-    duration: "2019 - 2020",
+    name: "Blockchain & Systems Learning",
+    pos: "Independent Research & Development",
+    duration: "2024 - Present",
     title:
-      "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-    icon: fromPublic("assets/notion.svg"),
+      "Currently exploring blockchain infrastructure, distributed systems, and Rust development. Building experimental projects involving smart contract tooling, backend services, and infrastructure automation to move toward Web3 DevOps and protocol engineering.",
+    icon: fromPublic("assets/solana.svg"),
     animation: "salute",
   },
 ];

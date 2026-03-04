@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
@@ -7,14 +7,10 @@ const DOCKER_MODEL_PATH = `${import.meta.env.BASE_URL}models/docker-logo.glb`;
 const Cube = (props) => {
   const { scene } = useGLTF(DOCKER_MODEL_PATH)
   const groupRef = useRef()
-  const [scale, setScale] = useState(22)
-  const [direction, setDirection] = useState(1)
 
-  useFrame(() => {
-    if (scale >= 23) setDirection(-1)
-    if (scale <= 22) setDirection(1)
-    setScale((prev) => prev + direction * 0.02)
+  useFrame(({ clock }) => {
     if (groupRef.current) {
+      const scale = 22 + Math.sin(clock.elapsedTime * 1.4) * 0.6
       groupRef.current.scale.set(scale, scale, scale)
     }
   })
