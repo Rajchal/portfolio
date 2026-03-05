@@ -6,6 +6,7 @@ import Clients from "./sections/Clients";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import Experience from "./sections/Experience";
+import Certifications from "./sections/Certifications";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
       <Projects />
       <Clients />
       <Experience />
+      <Certifications />
       <Contact />
       <Footer />
     </main>

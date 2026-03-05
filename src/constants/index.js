@@ -23,6 +23,11 @@ export const navLinks = [
   },
   {
     id: 5,
+    name: "Certifications",
+    href: "#certifications",
+  },
+  {
+    id: 6,
     name: "Contact",
     href: "#contact",
   },
@@ -233,6 +238,33 @@ export const workExperiences = [
       "Currently exploring blockchain infrastructure, distributed systems, and Rust development. Building experimental projects involving smart contract tooling, backend services, and infrastructure automation to move toward Web3 DevOps and protocol engineering.",
     icon: fromPublic("assets/solana.svg"),
     animation: "salute",
+  },
+];
+
+export const certifications = [
+  {
+    id: 1,
+    title: "AWS Certified Solution Architect",
+    issuer: "Amazon Web Services",
+    issued: "2025",
+    credentialUrl: "https://cp.certmetrics.com/amazon/en/public/verify/credential/5a470d79fce54982bee43135aee1a6d4",
+    icon: fromPublic("assets/aws.svg"),
+  },
+  {
+    id: 2,
+    title: "NGINX MasterClass: NGINX Server & Custom Load Balancer Certificate",
+    issuer: "Udemy",
+    issued: "2025",
+    credentialUrl: "https://udemy-certificate.s3.amazonaws.com/image/UC-0fcaa5e8-e6c6-4d4b-bf59-88563b5b7737.jpg",
+    icon: fromPublic("assets/udemy.svg"),
+  },
+  {
+    id: 3,
+    title: "GitHub Actions Certification",
+    issuer: "GitHub",
+    issued: "2025",
+    credentialUrl: "https://github.com/",
+    icon: fromPublic("assets/github.svg"),
   },
 ];
 
