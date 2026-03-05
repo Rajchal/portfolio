@@ -6,35 +6,74 @@ const Contact = () => {
   const formRef = useRef();
 
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" });
 
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
+  const serviceId =
+    import.meta.env.VITE_EMAILJS_SERVICE_ID || import.meta.env.VITE_SERVICE_KEY;
+  const templateId =
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID || import.meta.env.VITE_TEMPLATE_KEY;
+  const publicKey =
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY || import.meta.env.VITE_PUBLIC_KEY;
+
   const handleChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value });
+    if (status.message) setStatus({ type: "", message: "" });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const trimmedForm = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      message: form.message.trim(),
+    };
+
+    const isValidEmail = /\S+@\S+\.\S+/.test(trimmedForm.email);
+    if (!trimmedForm.name || !trimmedForm.email || !trimmedForm.message || !isValidEmail) {
+      setStatus({
+        type: "error",
+        message: "Please enter a valid name, email, and message.",
+      });
+      return;
+    }
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus({
+        type: "error",
+        message:
+          "Email service is not configured yet. Please use direct email: rajchalanjal1@gmail.com",
+      });
+      return;
+    }
+
     setLoading(true);
     try {
       await emailjs.send(
-        import.meta.env.VITE_SERVICE_KEY,
-        import.meta.env.VITE_TEMPLATE_KEY,
+        serviceId,
+        templateId,
         {
-          from_name: form.name,
+          from_name: trimmedForm.name,
           to_name: "Anjal",
-          from_email: form.email,
+          from_email: trimmedForm.email,
           to_email: "rajchalanjal1@gmail.com",
-          message: form.message,
+          message: trimmedForm.message,
         },
-        import.meta.env.VITE_PUBLIC_KEY
+        publicKey
       );
       setLoading(false);
-      alert("Message sent successfully!");
+      setForm({ name: "", email: "", message: "" });
+      setStatus({ type: "success", message: "Message sent successfully!" });
     } catch (error) {
       setLoading(false);
       console.log(error);
-      alert("Failed to send message!");
+      setStatus({
+        type: "error",
+        message:
+          "Failed to send message right now. Please email directly: rajchalanjal1@gmail.com",
+      });
     }
   };
 
@@ -101,6 +140,15 @@ const Contact = () => {
                 />
               </LazyLoad>
             </button>
+
+            {status.message && (
+              <p
+                className={`text-sm ${status.type === "success" ? "text-green-400" : "text-red-400"
+                  }`}
+              >
+                {status.message}
+              </p>
+            )}
           </form>
         </div>
       </div>
