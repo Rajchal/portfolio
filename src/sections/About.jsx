@@ -26,8 +26,9 @@ const About = () => {
             <div>
               <h2 className="grid-headtext">Hi, I&apos;m Anjal Rajchal</h2>
               <h3 className="grid-subtext">
-                With 2 years of experience, I have honed my skills in frontend
-                and backend devlopment, with a focus on animated 3D websites.
+                I am a backend and DevOps engineer focused on building and operating
+                reliable infrastructure. My work revolves around Linux systems,
+                cloud platforms, automation, and scalable backend services.
               </h3>
             </div>
           </div>
@@ -43,10 +44,12 @@ const About = () => {
             </LazyLoad>
 
             <div>
-              <h3 className="grid-headtext">Technologies I use</h3>
+              <h3 className="grid-headtext">Infrastructure Stack</h3>
               <h4 className="grid-subtext">
-                I specialize in JavaScript/TypeScript with a focus on React and
-                Next.js ecosystem
+                I work with cloud-native technologies including Linux, Docker,
+                AWS, Python, networking tools, and modern DevOps workflows.
+                I am also exploring Rust for high-performance infrastructure
+                and Web3 deployment environments.
               </h4>
             </div>
           </div>
@@ -62,11 +65,12 @@ const About = () => {
             </div>
             <div>
               <h3 className="grid-headtext">
-                I work remotely across most timezones
+                Available for remote collaboration
               </h3>
               <h4 className="grid-subtext">
-                I&apos;m based in Kathmandu, Nepal, and work with clients
-                worldwide
+                Based in Kathmandu, Nepal, I work with teams and clients
+                across different time zones to design and operate
+                reliable backend infrastructure.
               </h4>
               <a href="#contact">
                 <Button
@@ -89,10 +93,12 @@ const About = () => {
             </LazyLoad>
 
             <div>
-              <h3 className="grid-headtext">My passion for Coding</h3>
+              <h3 className="grid-headtext">Engineering Mindset</h3>
               <h4 className="grid-subtext">
-                I love solving problems and building things through code. Coding
-                isn&apos;t just my profession -it is my passion.
+                I enjoy working close to the system — understanding how
+                software runs, scales, and fails. My focus is building
+                reliable infrastructure, automating operations, and
+                designing systems that can run efficiently at scale.
               </h4>
             </div>
           </div>
