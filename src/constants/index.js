@@ -68,11 +68,12 @@ export const myProjects = [
       "Built using Tokio for async runtime and Hyper/Axum for HTTP handling, Aegis implements round-robin load balancing, active health monitoring of upstream services, request rate limiting, and structured logging via Tracing. Designed to explore networking internals, concurrency, and production-grade infrastructure concepts in Rust.",
     href: "https://github.com/yourusername/aegis-proxy",
     images: [
-      fromPublic("assets/star.png"),
-      fromPublic("assets/star.png"),
-      fromPublic("assets/star.png"),
+      fromPublic("assets/aegis1.png"),
+      fromPublic("assets/aegis2.png"),
+      fromPublic("assets/aegis3.png"),
+      fromPublic("assets/aegis4.png")
     ],
-    logo: fromPublic("assets/rust.svg"),
+    logo: fromPublic("assets/aegis.svg"),
     logoStyle: {
       backgroundColor: "#1e1e1e",
       border: "0.2px solid #2b2b2b",
