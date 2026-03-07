@@ -71,7 +71,8 @@ export const myProjects = [
       fromPublic("assets/aegis1.png"),
       fromPublic("assets/aegis2.png"),
       fromPublic("assets/aegis3.png"),
-      fromPublic("assets/aegis4.png")
+      fromPublic("assets/aegis4.png"),
+      fromPublic("assets/aegis5.png")
     ],
     logo: fromPublic("assets/aegis.svg"),
     logoStyle: {
