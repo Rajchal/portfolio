@@ -90,22 +90,22 @@ export const myProjects = [
       {
         id: 2,
         name: "Tokio",
-        path: fromPublic("assets/tokio.svg"),
+        path: fromPublic("assets/tokio.png"),
       },
       {
         id: 3,
         name: "Hyper",
-        path: fromPublic("assets/hyper.svg"),
+        path: fromPublic("assets/hyper.png"),
       },
       {
         id: 4,
         name: "Axum",
-        path: fromPublic("assets/axum.svg"),
+        path: fromPublic("assets/axum.png"),
       },
       {
         id: 5,
         name: "Tracing",
-        path: fromPublic("assets/tracing.svg"),
+        path: fromPublic("assets/tracing.png"),
       },
     ],
   },
