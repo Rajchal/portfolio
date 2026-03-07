@@ -66,7 +66,7 @@ export const myProjects = [
     desc: "Aegis is a lightweight, high-performance Layer 7 reverse proxy built in Rust, designed to handle concurrent HTTP traffic with load balancing, health checks, and rate limiting.",
     subdesc:
       "Built using Tokio for async runtime and Hyper/Axum for HTTP handling, Aegis implements round-robin load balancing, active health monitoring of upstream services, request rate limiting, and structured logging via Tracing. Designed to explore networking internals, concurrency, and production-grade infrastructure concepts in Rust.",
-    href: "https://github.com/yourusername/aegis-proxy",
+    href: "https://github.com/Rajchal/aegis-proxy",
     images: [
       fromPublic("assets/aegis1.png"),
       fromPublic("assets/aegis2.png"),
@@ -114,7 +114,7 @@ export const myProjects = [
     desc: "ChainDeploy is a CI/CD pipeline for automated smart contract testing, building, and deployment triggered via GitOps workflows.",
     subdesc:
       "Integrated GitHub Actions with containerized testing environments, automated contract verification, and deployment to testnets. Includes environment-based configuration, secret management, and rollback simulation.",
-    href: "https://github.com/yourusername/chaindeploy",
+    href: "https://github.com/Rajchal/chaindeploy",
     images: [
       fromPublic("assets/star.png"),
       fromPublic("assets/star.png"),
@@ -139,7 +139,7 @@ export const myProjects = [
     desc: "HydraRPC is a high-availability, multi-region RPC gateway designed to route blockchain requests across multiple full nodes with automatic failover and latency-based load balancing.",
     subdesc:
       "Built using Rust for performance-critical routing, Docker for containerization, and deployed across multiple cloud regions. The system includes health checks, rate limiting, Prometheus metrics, and Grafana dashboards for real-time monitoring. Designed to simulate production-grade Ethereum/Solana RPC infrastructure.",
-    href: "https://github.com/yourusername/hydra-rpc",
+    href: "https://github.com/Rajchal/hydra-rpc",
     images: [
       fromPublic("assets/star.png"),
       fromPublic("assets/star.png"),
