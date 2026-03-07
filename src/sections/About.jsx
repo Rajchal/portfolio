@@ -15,13 +15,15 @@ const About = () => {
     <section className="c-space pt-20 my-20" id="about">
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="col-span-1 xl:row-span-3">
-          <div className="grid-container">
+          <div className="grid-container about-photo-card">
             <LazyLoad offset={816}>
-              <img
-                src={`${import.meta.env.BASE_URL}assets/grid1.png`}
-                alt="grid-1"
-                className="w-full sm:h-[276px] h-fit object-contain"
-              />
+              <div className="about-photo-frame">
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/me.svg`}
+                  alt="Anjal Rajchal portrait"
+                  className="about-photo-pop"
+                />
+              </div>
             </LazyLoad>
             <div>
               <h2 className="grid-headtext">Hi, I&apos;m Anjal Rajchal</h2>
@@ -34,12 +36,12 @@ const About = () => {
           </div>
         </div>
         <div className="col-span-1 xl:row-span-3">
-          <div className="grid-container flex items-center justify-center">
+          <div className="grid-container flex items-center justify-center stack-pop-card">
             <LazyLoad offset={700}>
               <img
                 src={`${import.meta.env.BASE_URL}assets/devopstack.svg`}
                 alt="grid-2"
-                className="w-full sm:w-[276px] h-fit object-contain"
+                className="w-full sm:w-[276px] h-fit object-contain stack-pop-image"
               />
             </LazyLoad>
 
