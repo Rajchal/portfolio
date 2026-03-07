@@ -6,6 +6,7 @@ const projectCount = myProjects.length;
 const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [isAutoPaused, setIsAutoPaused] = useState(false);
+  const [activePreviewImage, setActivePreviewImage] = useState(null);
 
   const currentProject = myProjects[selectedProjectIndex];
   const previewImages = currentProject.images?.length
@@ -40,6 +41,22 @@ const Projects = () => {
 
     return () => clearInterval(intervalId);
   }, [isAutoPaused]);
+
+  useEffect(() => {
+    // Close any open lightbox image when the active project changes.
+    setActivePreviewImage(null);
+  }, [selectedProjectIndex]);
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setActivePreviewImage(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, []);
 
   const handleUserInteraction = () => setIsAutoPaused(true);
 
@@ -172,16 +189,47 @@ const Projects = () => {
             className={`project-collage ${getCollageClass(previewImages.length)} project-content-animate`}
           >
             {previewImages.map((image, index) => (
-              <div
+              <button
                 key={`${image}-${index}`}
-                className={`project-collage-item project-collage-item-${index + 1}`}
+                type="button"
+                onClick={() => {
+                  handleUserInteraction();
+                  setActivePreviewImage(image);
+                }}
+                className={`project-collage-item project-collage-item-${index + 1} cursor-zoom-in`}
+                aria-label={`Open ${currentProject.title} image ${index + 1}`}
               >
                 <img src={image} alt={`${currentProject.title} preview ${index + 1}`} />
-              </div>
+              </button>
             ))}
           </div>
         </div>
       </div>
+
+      {activePreviewImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 p-4 sm:p-8 flex items-center justify-center"
+          onClick={() => setActivePreviewImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Project image preview"
+        >
+          <button
+            type="button"
+            aria-label="Close image preview"
+            className="absolute top-5 right-5 w-10 h-10 rounded-full border border-white/30 bg-black/40 text-white text-xl leading-none hover:bg-black/60"
+            onClick={() => setActivePreviewImage(null)}
+          >
+            x
+          </button>
+          <img
+            src={activePreviewImage}
+            alt={`${currentProject.title} full preview`}
+            className="max-w-full max-h-[85vh] w-auto h-auto rounded-xl border border-white/15 shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 };
