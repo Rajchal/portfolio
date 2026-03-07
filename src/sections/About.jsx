@@ -37,7 +37,7 @@ const About = () => {
           <div className="grid-container flex items-center justify-center">
             <LazyLoad offset={700}>
               <img
-                src={`${import.meta.env.BASE_URL}assets/devops.jpeg`}
+                src={`${import.meta.env.BASE_URL}assets/devopstack.svg`}
                 alt="grid-2"
                 className="w-full sm:w-[276px] h-fit object-contain"
               />
