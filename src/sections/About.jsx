@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import CollaborationGlobe from "../components/CollaborationGlobe";
 import { useState } from "react";
 import LazyLoad from "react-lazyload";
 
@@ -58,12 +59,8 @@ const About = () => {
         </div>
         <div className="col-span-1 xl:row-span-4">
           <div className="grid-container">
-            <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
-              <img
-                src={`${import.meta.env.BASE_URL}assets/grid4.png`}
-                alt="location"
-                className="w-full h-full rounded-2xl object-cover"
-              />
+            <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center overflow-hidden border border-black-300 bg-black-300/20">
+              <CollaborationGlobe />
             </div>
             <div>
               <h3 className="grid-headtext">
